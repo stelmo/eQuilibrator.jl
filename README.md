@@ -2,7 +2,7 @@
 *A lighweight interface to eQuilibrator through Julia.*
 
 [docs-img]:https://img.shields.io/badge/docs-latest-blue.svg
-[docs-url]: 
+[docs-url]: https://stelmo.github.io/Equilibrator.jl/
  
 [ci-img]: https://github.com/stelmo/Equilibrator.jl/actions/workflows/ci.yml/badge.svg?branch=main
 [ci-url]: https://github.com/stelmo/Equilibrator.jl/actions/workflows/ci.yml
