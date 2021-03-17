@@ -7,8 +7,8 @@
 [ci-img]: https://github.com/stelmo/Equilibrator.jl/actions/workflows/ci.yml/badge.svg?branch=main
 [ci-url]: https://github.com/stelmo/Equilibrator.jl/actions/workflows/ci.yml
 
-[cov-img]: 
-[cov-url]: 
+[cov-img]: https://codecov.io/gh/stelmo/Equilibrator.jl/branch/main/graph/badge.svg?token=WIQVsI0ZGJ
+[cov-url]: https://codecov.io/gh/stelmo/Equilibrator.jl
 
 [contrib]: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
 
