@@ -13,7 +13,7 @@
 [contrib]: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
 
 [license-img]: http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat
-[license-url]: LICENSE.md
+[license-url]: LICENSE
 
 [![][license-img]][license-url] [![contributions welcome][contrib]](https://github.com/stelmo/CobraTools.jl/issues)
 
