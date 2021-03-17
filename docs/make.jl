@@ -13,4 +13,4 @@ makedocs(
     pages = ["Documentation" => "index.md"],
 )
 
-deploydocs(repo = "github.com/USER_NAME/PACKAGE_NAME.jl.git")
+deploydocs(repo = "github.com/stelmo/Equilibrator.jl.git")
