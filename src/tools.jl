@@ -3,6 +3,7 @@ mutable struct Reaction
     # better way to make the conversion without touching the whole reaction
     # structure
 end
+
 """
     build_rxn_string(rxn::Reaction, compoundtype="kegg")
 
