@@ -5,7 +5,6 @@ makedocs(
     clean = false,
     format = Documenter.HTML(
         prettyurls = !("local" in ARGS),
-        canonical = "https://stelmo.github.io/Equilibrator.jl/stable/",
     ),
     sitename = "Equilibrator.jl",
     authors = "The developers of Equilibrator.jl",
