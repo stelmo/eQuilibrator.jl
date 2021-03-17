@@ -13,4 +13,11 @@ makedocs(
     pages = ["Documentation" => "index.md"],
 )
 
-deploydocs(repo = "github.com/stelmo/Equilibrator.jl.git")
+deploydocs(
+    repo = "github.com/stelmo/Equilibrator.jl.git",
+    target = "build",
+    branch = "gh-pages",
+    devbranch = "develop",
+    devbranch = "main",
+    push_preview = true,
+)
