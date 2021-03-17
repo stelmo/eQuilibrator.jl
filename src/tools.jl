@@ -1,10 +1,15 @@
+mutable struct Reaction
+    # TODO: this is a placeholder so that the code compiles, we need to find a
+    # better way to make the conversion without touching the whole reaction
+    # structure
+end
 """
     build_rxn_string(rxn::Reaction, compoundtype="kegg")
 
 Get a reaction in string format for Equilibrator.
 """
 function build_rxn_string(rxn::Reaction, compoundtype = "kegg")
-    #TODO I guess this one can stay in cobra workflow package, right?
+    #TODO I guess this one can very roughly stay in cobra workflow package, right?
     pos_s = []
     neg_s = []
 
