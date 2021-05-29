@@ -1,13 +1,13 @@
-using Documenter, Equilibrator
+using Documenter, eQuilibrator
 
 makedocs(
-    modules = [Equilibrator],
+    modules = [eQuilibrator],
     clean = false,
+    sitename = "eQuilibrator.jl",
     format = Documenter.HTML(
         prettyurls = !("local" in ARGS),
         assets = ["assets/favicon.ico"],
     ),
-    sitename = "eQuilibrator.jl",
     authors = "The developers of eQuilibrator.jl",
     linkcheck = !("skiplinks" in ARGS),
     pages = ["Documentation" => "index.md"],
