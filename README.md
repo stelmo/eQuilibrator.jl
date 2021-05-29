@@ -17,12 +17,7 @@
 [license-img]: http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat
 [license-url]: LICENSE
 
-[![][license-img]][license-url] [![contributions welcome][contrib]](https://github.com/stelmo/eQuilibrator.jl/issues)
-
-| **Documentation** | **Tests** | **Coverage** |
-|:--------------:|:-------:|:---------:|
-| [![docs-img]][docs-url] | [![CI][ci-img]][ci-url] | [![codecov][cov-img]][cov-url] |
-
+[![docs-img]][docs-url][![][license-img]][license-url] [![contributions welcome][contrib]](https://github.com/stelmo/eQuilibrator.jl/issues)
 
 ## Installation
 
