@@ -5,6 +5,7 @@ makedocs(
     clean = false,
     format = Documenter.HTML(
         prettyurls = !("local" in ARGS),
+        assets = ["assets/favicon.ico"],
     ),
     sitename = "eQuilibrator.jl",
     authors = "The developers of eQuilibrator.jl",
