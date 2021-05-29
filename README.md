@@ -1,25 +1,23 @@
 <br>
 <div align="center">
-    <img src="docs/src/assets/header.svg?maxAge=0" width="40%">
+    <img src="docs/src/assets/header.svg?maxAge=0" width="50%">
 </div>
 
-*A lightweight interface to eQuilibrator through Julia.*
-
 [docs-img]:https://img.shields.io/badge/docs-latest-blue.svg
-[docs-url]: https://stelmo.github.io/Equilibrator.jl/dev
+[docs-url]: https://stelmo.github.io/eQuilibrator.jl/dev
  
-[ci-img]: https://github.com/stelmo/Equilibrator.jl/actions/workflows/ci.yml/badge.svg?branch=main
-[ci-url]: https://github.com/stelmo/Equilibrator.jl/actions/workflows/ci.yml
+[ci-img]: https://github.com/stelmo/eQuilibrator.jl/actions/workflows/ci.yml/badge.svg?branch=main
+[ci-url]: https://github.com/stelmo/eQuilibrator.jl/actions/workflows/ci.yml
 
-[cov-img]: https://codecov.io/gh/stelmo/Equilibrator.jl/branch/main/graph/badge.svg?token=WIQVsI0ZGJ
-[cov-url]: https://codecov.io/gh/stelmo/Equilibrator.jl
+[cov-img]: https://codecov.io/gh/stelmo/eQuilibrator.jl/branch/main/graph/badge.svg?token=WIQVsI0ZGJ
+[cov-url]: https://codecov.io/gh/stelmo/eQuilibrator.jl
 
 [contrib]: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
 
 [license-img]: http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat
 [license-url]: LICENSE
 
-[![][license-img]][license-url] [![contributions welcome][contrib]](https://github.com/stelmo/CobraTools.jl/issues)
+[![][license-img]][license-url] [![contributions welcome][contrib]](https://github.com/stelmo/eQuilibrator.jl/issues)
 
 | **Documentation** | **Tests** | **Coverage** |
 |:--------------:|:-------:|:---------:|

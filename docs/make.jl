@@ -6,14 +6,14 @@ makedocs(
     format = Documenter.HTML(
         prettyurls = !("local" in ARGS),
     ),
-    sitename = "Equilibrator.jl",
-    authors = "The developers of Equilibrator.jl",
+    sitename = "eQuilibrator.jl",
+    authors = "The developers of eQuilibrator.jl",
     linkcheck = !("skiplinks" in ARGS),
     pages = ["Documentation" => "index.md"],
 )
 
 deploydocs(
-    repo = "github.com/stelmo/Equilibrator.jl.git",
+    repo = "github.com/stelmo/eQuilibrator.jl.git",
     target = "build",
     branch = "gh-pages",
     devbranch = "main",
