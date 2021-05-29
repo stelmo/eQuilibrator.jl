@@ -1,9 +1,8 @@
 <br>
 <div align="center">
-    <img src="docs/src/assets/header.svg?maxAge=0" width="80%">
+    <img src="docs/src/assets/header.svg?maxAge=0" width="40%">
 </div>
 
-# Equilibrator.jl
 *A lightweight interface to eQuilibrator through Julia.*
 
 [docs-img]:https://img.shields.io/badge/docs-latest-blue.svg
@@ -29,6 +28,6 @@
 
 ## Installation
 
-To install this package: `] add https://github.com/stelmo/Equilibrator.jl`. See the documentation for more information.
+To install this package: `] add https://github.com/stelmo/eQuilibrator.jl`. See the documentation for more information.
 
 ## Quick Example
