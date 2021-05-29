@@ -5,6 +5,6 @@ eQuilibrator.jl is a lightweight interface to the Python package [eQuilibrator](
 ## Function reference
 
 ```@autodocs
-Modules=[Equilibrator]
+Modules=[eQuilibrator]
 Pages=["tools.jl"]
 ```

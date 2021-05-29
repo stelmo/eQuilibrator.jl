@@ -1,4 +1,4 @@
-module Equilibrator
+module eQuilibrator
 
 using PyCall
 
