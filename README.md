@@ -1,5 +1,10 @@
+<br>
+<div align="center">
+    <img src="docs/src/assets/header.svg?maxAge=0" width="80%">
+</div>
+
 # Equilibrator.jl
-*A lighweight interface to eQuilibrator through Julia.*
+*A lightweight interface to eQuilibrator through Julia.*
 
 [docs-img]:https://img.shields.io/badge/docs-latest-blue.svg
 [docs-url]: https://stelmo.github.io/Equilibrator.jl/dev
