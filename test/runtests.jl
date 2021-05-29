@@ -1,7 +1,5 @@
-
 using Test
-using Equilibrator
 
-@testset "DistributedData tests" begin
-    @test "hard algebra" 1 == 1
+@testset "Not implemened yet" begin
+    @test "probably true" 1 == 1
 end
