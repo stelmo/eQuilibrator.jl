@@ -11,7 +11,7 @@ using Unitful
 
 temp = 30u"°C"
 i_strength = 150.0u"mM"
-ph=7.9
+ph = 7.9
 pmg = 2.0
 
 system = eQuilibrator.System(pH=ph, pMg=pmg, temperature=temp, ionic_strength=i_strength)
@@ -23,8 +23,8 @@ system = eQuilibrator.System(pH=ph, pMg=pmg, temperature=temp, ionic_strength=i_
 
 !!! note "Variable names"
     While it is tempting to name a variable `temperature` or `ionic_strength`,
-    these are exported functions and will be over-written if you assigned that
-    name to a variable.
+    these are the names of exported functions. Defining variables with these names 
+    will over-write these functions.
 
 It is possible to change the state of the system after initialization.
 ```
@@ -46,8 +46,10 @@ physiological_dg_prime(system, rxn_string)
 
 standard_dg_prime(system, rxn_string)
 
+dg_prime(system, rxn_string) # equilibrator_api default abundances/concentrations
+
 concens = Dict("bigg.metabolite:atp"=>1u"mM", "bigg.metabolite:adp"=>100u"μM", "bigg.metabolite:pi"=>0.005u"M")
-dg_prime(system, rxn_string; concentrations=concens)
+dg_prime(system, rxn_string; concentrations=concens) # user specified concentrations
 
 ln_reversibility_index(system, rxn_string)
 ```

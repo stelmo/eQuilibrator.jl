@@ -1,5 +1,5 @@
 """
-_parse_units(x)
+    _parse_units(x)
 
 Converts units like kilojoule / mole into kJ/M. This function is not exported.
 """
