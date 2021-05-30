@@ -28,6 +28,7 @@ To install this package: `] add https://github.com/stelmo/eQuilibrator.jl`. See 
 using eQuilibrator
 
 system = eQuilibrator.System(ionic_strength=150.0u"mM")
+
 rxn_string = "bigg.metabolite:atp + bigg.metabolite:h2o = bigg.metabolite:adp + bigg.metabolite:pi"
 
 dg_prime(system, rxn_string) # -26.88 ± 0.3 kJ mol^-1

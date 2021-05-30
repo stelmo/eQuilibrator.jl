@@ -3,7 +3,7 @@
 The following examples follow closely the [example usage](https://equilibrator.readthedocs.io/en/latest/equilibrator_examples.html#Code-examples) 
 documented in `equilibrator_api`. Try running these examples!
 
-# Basic ΔG' calculations
+## Basic ΔG' calculations
 Load `eQuilibrator.jl` and `Unitful`. Then initialize the thermodynamic `system` as shown below.
 ```
 using eQuilibrator
@@ -57,3 +57,13 @@ ln_reversibility_index(system, rxn_string)
     [eQuilibrator](https://equilibrator.weizmann.ac.il/static/classic_rxns/faq.html#how-do-you-calculate-the-uncertainty-for-each-estimation) 
     supplies estimates with uncertainties, these are reflected by the use of `a ± b` with `b` being the uncertainty, assumed to be
     one standard deviation here.
+
+## Reaction parsing
+It is possible to mix and match metabolite identifiers, exactly like in
+`equilibrator_api`, with the associated warnings. In short, the reaction string
+is directly passed to `equilibrator_api`, so whatever strings works for it, will
+also work here.
+```
+atpase_rxn_string_2 = "kegg:C00002 + CHEBI:15377 = metanetx.chemical:MNXM7 + bigg.metabolite:pi"
+dg_prime(system, atpase_rxn_string_2)
+```

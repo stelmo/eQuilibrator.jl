@@ -1,4 +1,4 @@
-## Function reference
+# Function reference
 
 ```@autodocs
 Modules=[eQuilibrator]
