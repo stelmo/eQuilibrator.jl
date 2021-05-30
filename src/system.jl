@@ -32,11 +32,11 @@ using Unitful
 sys = System(ph=6.0, pMg = 2.5, ionic_strength=250.0u"mM", temperature=30.0u"°C")
 ```
 """
-function System(;ph=7.0, pMg = 3.0, ionic_strength = 0.25u"M", temperature=298.15u"K")
+function System(;pH=7.0, pMg = 3.0, ionic_strength = 0.25u"M", temperature=298.15u"K")
     eq = pyimport("equilibrator_api")
     cc = eq.ComponentContribution()
 
-    cc.p_h = eq.Q_(ph)
+    cc.p_h = eq.Q_(pH)
     cc.p_mg = eq.Q_(pMg)
     
     _ionic_strength = uconvert(u"M", float(ionic_strength))
