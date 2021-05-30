@@ -33,3 +33,6 @@ rxn_string = "bigg.metabolite:atp + bigg.metabolite:h2o = bigg.metabolite:adp + 
 
 dg_prime(system, rxn_string) # -26.88 ± 0.3 kJ mol^-1
 ```
+
+## Contributions
+Please feel free to file an issue or submit a PR! 
