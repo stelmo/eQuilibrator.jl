@@ -29,7 +29,7 @@ Note: use floating point numbers and not integers when specifying the units of a
 using eQuilibrator
 using Unitful
 
-sys = System(ph=6.0, pMg = 2.5, ionic_strength=250.0u"mM", temperature=30.0u"°C")
+sys = System(pH=6.0, pMg = 2.5, ionic_strength=250.0u"mM", temperature=30.0u"°C")
 ```
 """
 function System(;pH=7.0, pMg = 3.0, ionic_strength = 0.25u"M", temperature=298.15u"K")
