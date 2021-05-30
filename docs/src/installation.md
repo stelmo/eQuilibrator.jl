@@ -1,0 +1,34 @@
+# Installation instructions
+
+`eQuilibrator.jl` uses [PyCall](https://github.com/JuliaPy/PyCall.jl) and
+[Conda.jl](https://github.com/JuliaPy/Conda.jl) to access `equilibrator_api`
+functions. First, ensure that you have installed both `PyCall` and `Conda.jl`
+using Julia's package manager:
+
+```
+] add PyCall
+] add Conda
+```
+
+Next, install `equilibrator_api` through `Conda.jl`:
+
+```
+using Conda
+
+Conda.add("equilibrator_api")
+```
+
+Then test if you can import `equilibrator_api` using PyCall:
+
+```
+using PyCall
+
+eq = pyimport("equilibrator_api")
+```
+
+If no errors occur, and the last command return something like `PyObject <module 'equilibrator_api' from...` 
+then you will be able to use `eQuilibrator.jl` after installing it:
+
+```
+] add https://github.com/stelmo/eQuilibrator.jl.git
+```

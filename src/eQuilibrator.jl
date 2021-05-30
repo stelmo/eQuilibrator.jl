@@ -1,12 +1,19 @@
 module eQuilibrator
 
 using PyCall
+using Unitful
+using Measurements
+using Crayons
 
-# initialize
-include("init.jl")
-# useful functions
-include("tools.jl")
+include("utils.jl")
+include("system.jl")
+include("reaction.jl")
 
-export build_rxn_strings, map_gibbs_rxns, map_gibbs_external, map_gibbs_internal
+# # initialize
+# include("init.jl")
+# # useful functions
+# include("tools.jl")
+
+# export build_rxn_strings, map_gibbs_rxns, map_gibbs_external, map_gibbs_internal
 
 end # module
