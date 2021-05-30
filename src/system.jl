@@ -20,9 +20,8 @@ end
     System(;ph=7.0, pMg = 3.0, ionic_strength = 0.25M, temperature=298.15K)
 
 A constructor for `System`. Keyword arguments `ionic_strength` and `temperature` have units.
-Any appropriate unit may be used, the conversion is handled internally.
-
-Note: use floating point numbers and not integers when specifying the units of a system.
+Any appropriate unit may be used, the conversion is handled internally. This is typically
+slow to load, ~ 30 seconds, since all the thermodynamic data needs to be loaded into memory.
 
 # Example
 ```
