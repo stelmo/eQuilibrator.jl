@@ -2,5 +2,5 @@
 
 ```@autodocs
 Modules=[eQuilibrator]
-Pages=["tools.jl"]
+Pages=["system.jl", "reaction.jl", "utils.jl"]
 ```

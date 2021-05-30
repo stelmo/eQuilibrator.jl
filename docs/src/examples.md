@@ -21,7 +21,7 @@ system = eQuilibrator.System(pH=ph, pMg=pmg, temperature=temp, ionic_strength=i_
     unitless floats). However, any suitable unit may be used, they are internally
     converted into Kelvin and molar respectively.
 
-!!! warning "Variable names"
+!!! note "Variable names"
     While it is tempting to name a variable `temperature` or `ionic_strength`,
     these are exported functions and will be over-written if you assigned that
     name to a variable.
@@ -51,7 +51,7 @@ dg_prime(system, rxn_string; concentrations=concens)
 
 ln_reversibility_index(system, rxn_string)
 ```
-!!! tip "Errors are shown using `Measurements.jl`
+!!! tip "Errors are shown using `Measurements.jl`"
     [eQuilibrator](https://equilibrator.weizmann.ac.il/static/classic_rxns/faq.html#how-do-you-calculate-the-uncertainty-for-each-estimation) 
     supplies estimates with uncertainties, these are reflected by the use of `a ± b` with `b` being the uncertainty, assumed to be
     one standard deviation here.
