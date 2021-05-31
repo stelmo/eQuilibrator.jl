@@ -17,6 +17,14 @@ export System,
        standard_dg_prime, 
        physiological_dg_prime, 
        dg_prime,
-       ln_reversibility_index
+       ln_reversibility_index,
+       bigg,
+       @bigg_str,
+       kegg,
+       @kegg_str,
+       chebi,
+       @chebi_str,
+       metanetx,
+       @metanetx_str
 
 end # module

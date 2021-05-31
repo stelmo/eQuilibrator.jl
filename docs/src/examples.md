@@ -67,3 +67,20 @@ also work here.
 atpase_rxn_string_2 = "kegg:C00002 + CHEBI:15377 = metanetx.chemical:MNXM7 + bigg.metabolite:pi"
 dg_prime(system, atpase_rxn_string_2)
 ```
+Convenience functions for reaction string processing are also made available. These
+functions insert the appropriate identifier in front of each metabolite while respecting
+the associated stoichiometric coefficient. Note, these functions insert the exact same
+prefix before each metabolite. 
+```
+bigg("atp + h2o = adp + pi")
+
+bigg"atp + h2o = adp + pi"
+
+kegg("C00002 + C00001 = C00008 + C00009")
+
+kegg"C00002 + C00001 = C00008 + C00009"
+
+metanetx("MNXM3 + MNXM2 = MNXM7 + MNXM9")
+
+metanetx"MNXM3 + MNXM2 = MNXM7 + MNXM9"
+```
