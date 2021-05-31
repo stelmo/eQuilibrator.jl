@@ -33,6 +33,15 @@ ionic_strength(system, 0.25u"M")
 pH(system, 7.4)
 pMg(system, 3.0)
 ```
+An eQuilibrator `System` has pretty printing:
+```
+system
+# eQuilibrator System
+# Temperature:    298.15 K
+# Ionic strength: 0.25 M
+# pH:             7.4
+# pMg:            3.0
+```
 
 It is necessary to supply a reaction string.
 ```
@@ -43,15 +52,20 @@ After specifying the reaction string, it is a simple matter of calling the appro
 to get the ΔG values. 
 ```
 physiological_dg_prime(system, rxn_string)
+# -46.26 ± 0.3 kJ mol^-1
 
 standard_dg_prime(system, rxn_string)
+# -29.14 ± 0.3 kJ mol^-1
 
 dg_prime(system, rxn_string) # equilibrator_api default abundances/concentrations
+# -29.14 ± 0.3 kJ mol^-1
 
 concens = Dict("bigg.metabolite:atp"=>1u"mM", "bigg.metabolite:adp"=>100u"μM", "bigg.metabolite:pi"=>0.005u"M")
 dg_prime(system, rxn_string; concentrations=concens) # user specified concentrations
+# -47.98 ± 0.3 kJ mol^-1
 
 ln_reversibility_index(system, rxn_string)
+# -12.447 ± 0.082
 ```
 !!! tip "Errors are shown using `Measurements.jl`"
     [eQuilibrator](https://equilibrator.weizmann.ac.il/static/classic_rxns/faq.html#how-do-you-calculate-the-uncertainty-for-each-estimation) 
@@ -73,19 +87,26 @@ the associated stoichiometric coefficient. Note, these functions insert the exac
 prefix before each metabolite. 
 ```
 bigg("atp + h2o = adp + pi")
+# "bigg.metabolite:atp + bigg.metabolite:h2o = bigg.metabolite:adp + 2 bigg.metabolite:pi"
 
 bigg"atp + h2o = adp + pi"
+# "bigg.metabolite:atp + bigg.metabolite:h2o = bigg.metabolite:adp + 2 bigg.metabolite:pi"
 
 kegg("C00002 + C00001 = C00008 + C00009")
+# "kegg:C00002 + kegg:C00001 = kegg:C00008 + kegg:C00009"
 
 kegg"C00002 + C00001 = C00008 + C00009"
+# "kegg:C00002 + kegg:C00001 = kegg:C00008 + kegg:C00009"
 
 metanetx("MNXM3 + MNXM2 = MNXM7 + MNXM9")
+# "metanetx.chemical:MNXM3 + metanetx.chemical:MNXM2 = metanetx.chemical:MNXM7 + metanetx.chemical:MNXM9"
 
 metanetx"MNXM3 + MNXM2 = MNXM7 + MNXM9"
+# "metanetx.chemical:MNXM3 + metanetx.chemical:MNXM2 = metanetx.chemical:MNXM7 + metanetx.chemical:MNXM9"
 ```
 To use this functionality:
 ```
 r_str = bigg"atp + h2o = adp + pi"
 dg_prime(system, r_str)
+# -29.14 ± 0.3 kJ mol^-1
 ```
