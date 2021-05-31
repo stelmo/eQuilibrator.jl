@@ -84,3 +84,8 @@ metanetx("MNXM3 + MNXM2 = MNXM7 + MNXM9")
 
 metanetx"MNXM3 + MNXM2 = MNXM7 + MNXM9"
 ```
+To use this functionality:
+```
+r_str = bigg"atp + h2o = adp + pi"
+dg_prime(system, r_str)
+```
