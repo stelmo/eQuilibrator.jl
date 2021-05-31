@@ -28,6 +28,7 @@ To install this package: `] add https://github.com/stelmo/eQuilibrator.jl`. See 
 ## Quick Example
 ```julia
 using eQuilibrator
+using Unitful
 
 system = eQuilibrator.System(ionic_strength=150.0u"mM")
 

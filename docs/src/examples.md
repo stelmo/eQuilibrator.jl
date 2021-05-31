@@ -33,7 +33,7 @@ ionic_strength(system, 0.25u"M")
 pH(system, 7.4)
 pMg(system, 3.0)
 ```
-An eQuilibrator `System` has pretty printing:
+An eQuilibrator.jl `System` has pretty printing:
 ```
 system
 # eQuilibrator System
