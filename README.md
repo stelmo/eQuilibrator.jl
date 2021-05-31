@@ -19,6 +19,8 @@
 
 [![docs-img]][docs-url] [![][license-img]][license-url] [![contributions welcome][contrib]](https://github.com/stelmo/eQuilibrator.jl/issues)
 
+A lightweight interface to [eQuilibrator](https://equilibrator.weizmann.ac.il/) and [equilibrator_api](https://gitlab.com/equilibrator/equilibrator-api) through Julia.
+
 ## Installation
 
 To install this package: `] add https://github.com/stelmo/eQuilibrator.jl`. See the documentation for more information.
