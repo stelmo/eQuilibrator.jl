@@ -47,6 +47,19 @@ function System(;pH=7.0, pMg = 3.0, ionic_strength = 0.25u"M", temperature=298.1
 end
 
 """
+reset(sys:System)
+
+Reset `sys` back to the default starting state with `pH = 7.0`,
+`pMg = 3.0`, `temperature = 298 K` and `ionic_strength = 0.25 M`.
+"""
+function reset(sys:System)
+    temperature(sys, 298.15u"K")
+    pH(sys, 7.0)
+    pMg(sys, 3.0)
+    ionic_strength(sys, 0.25u"M")
+end
+
+"""
     temperature(sys::System)
 
 Get the temperature of `sys`.
