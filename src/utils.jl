@@ -221,6 +221,6 @@ end
 Caps the lower bound of a concentration to ϵ. 
 Return ϵ if x is less than ϵ, otherwise x.
 """
-function _lower_bound(x)
-    x < 0.001u"mM" ? 0.001u"mM" : x
+function _lower_bound(x, ϵ=0.001u"mM")
+    x < ϵ ? ϵ : x
 end
