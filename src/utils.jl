@@ -35,6 +35,7 @@ function _parse_reaction_part(str::String, prefix::String)
     mets = split(nospace_str, r"\+")
     parsed_str = String[]
     for met in mets
+        met = replace(met, r"\s+$"=>"")
         ind = findfirst(r"(\d+\s)|(\d+\.\s)|(\d+\.\d+\s)|(\.\d+\s)", met)
         if isnothing(ind)
             push!(parsed_str, prefix*replace(met," "=>""))
