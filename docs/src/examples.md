@@ -103,6 +103,10 @@ metanetx("MNXM3 + MNXM2 = MNXM7 + MNXM9")
 
 metanetx"MNXM3 + MNXM2 = MNXM7 + MNXM9"
 # "metanetx.chemical:MNXM3 + metanetx.chemical:MNXM2 = metanetx.chemical:MNXM7 + metanetx.chemical:MNXM9"
+
+chebi(30616 + 33813 = 456216 + 43474")
+
+chebi"30616 + 33813 = 456216 + 43474"
 ```
 To use this functionality:
 ```

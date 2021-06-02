@@ -52,7 +52,7 @@ reset(sys:System)
 Reset `sys` back to the default starting state with `pH = 7.0`,
 `pMg = 3.0`, `temperature = 298 K` and `ionic_strength = 0.25 M`.
 """
-function reset(sys:System)
+function reset(sys::System)
     temperature(sys, 298.15u"K")
     pH(sys, 7.0)
     pMg(sys, 3.0)
