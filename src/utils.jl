@@ -214,3 +214,13 @@ chebi"30616 + 33813 = 456216 + 2 43474"
 macro chebi_str(str::String)
     return :(chebi($str))
 end
+
+"""
+    _lower_bound(x, ϵ=0.001u"mM")
+
+Caps the lower bound of a concentration to ϵ. 
+Return ϵ if x is less than ϵ, otherwise x.
+"""
+function _lower_bound_concentration(x)
+    x < 0.001u"mM" ? 0.001u"mM" : x
+end

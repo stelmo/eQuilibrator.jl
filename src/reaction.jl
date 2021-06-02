@@ -25,7 +25,7 @@ function dg_prime(sys, rxn_string; concentrations=Dict{String, Any}(), balance_w
     end
 
     for (k, v) in concentrations
-        val = uconvert(u"M", float(v))
+        val = uconvert(u"M", _lower_bound(float(v), ϵ=0.001u"mM"))
         rxn.set_abundance(sys.cc.get_compound(k), sys.eq.Q_(string(val)))
     end
     pydg = sys.cc.dg_prime(rxn)
