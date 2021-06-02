@@ -17,11 +17,15 @@ This function is not exported.
 """
 function _parse_reaction_string(str::String, prefix::String)
     rxn_string_reagents_products = split(str, "=")
-    reagents = string(rxn_string_reagents_products[1])
-    products = string(rxn_string_reagents_products[2])
-    parsed_reagents = join(_parse_reaction_part(reagents, prefix*":"), " + ")
-    parsed_products = join(_parse_reaction_part(products, prefix*":"), " + ")
-    return parsed_reagents*" = "*parsed_products
+    if length(rxn_string_reagents_products) == 1
+        return prefix*":"*str # only metabolite 
+    else
+        reagents = string(rxn_string_reagents_products[1])
+        products = string(rxn_string_reagents_products[2])
+        parsed_reagents = join(_parse_reaction_part(reagents, prefix*":"), " + ")
+        parsed_products = join(_parse_reaction_part(products, prefix*":"), " + ")
+        return parsed_reagents*" = "*parsed_products
+    end
 end
 
 """
