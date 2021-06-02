@@ -5,7 +5,9 @@ Calculate ΔG' of a reaction described by `rxn_string` using the settings in
 `sys`. Optionally, set the concentrations (abundances) of the species involved
 in the reaction through `concentration`. If `skip_unbalanced` is true then
 return `nothing` if the reaction is unbalanced. If `balance_warn` is false
-then do not emit a warning when the reaction is unbalanced.
+then do not emit a warning when the reaction is unbalanced. Note, concentrations
+that are smaller than 0.001 mM are capped at 0.001 mM (an eQuilibrator/equilibrator_api)
+restriction.
 
 # Example
 ```
