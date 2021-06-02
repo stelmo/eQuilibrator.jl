@@ -188,7 +188,7 @@ chebi(30616 + 33813 = 456216 + 2 43474")
 ```
 """
 function chebi(str::String)
-    _parse_reaction_string(str, "CHEBI:")
+    _parse_reaction_string(str, "CHEBI")
  end
 
 """
