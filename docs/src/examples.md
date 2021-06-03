@@ -70,7 +70,10 @@ ln_reversibility_index(system, rxn_string)
 !!! tip "Errors are shown using `Measurements.jl`"
     [eQuilibrator](https://equilibrator.weizmann.ac.il/static/classic_rxns/faq.html#how-do-you-calculate-the-uncertainty-for-each-estimation) 
     supplies estimates with uncertainties, these are reflected by the use of `a ± b` with `b` being the uncertainty, assumed to be
-    one standard deviation here.
+    one standard deviation here. The nominal value of a Gibbs energy estimate may be found by using `Measurements.value(...)`.
+
+!!! tip "Units are shown using `Unitful.jl`"
+    Units are associated with each Gibbs energy estimate. To remove the units, use `Unitful.ustrip(...)`.
 
 ## Reaction parsing
 It is possible to mix and match metabolite identifiers, exactly like in
@@ -78,8 +81,10 @@ It is possible to mix and match metabolite identifiers, exactly like in
 is directly passed to `equilibrator_api`, so whatever strings works for it, will
 also work here.
 ```
+system = eQuilibrator.System()
 atpase_rxn_string_2 = "kegg:C00002 + CHEBI:15377 = metanetx.chemical:MNXM7 + bigg.metabolite:pi"
 dg_prime(system, atpase_rxn_string_2)
+# -27.37 ± 0.3 kJ mol^-1
 ```
 Convenience functions for reaction string processing are also made available. These
 functions insert the appropriate identifier in front of each metabolite while respecting
@@ -105,14 +110,24 @@ metanetx"MNXM3 + MNXM2 = MNXM7 + MNXM9"
 # "metanetx.chemical:MNXM3 + metanetx.chemical:MNXM2 = metanetx.chemical:MNXM7 + metanetx.chemical:MNXM9"
 
 chebi("30616 + 33813 = 456216 + 43474")
-# "CHEBI::30616 + CHEBI::33813 = CHEBI::456216 + CHEBI::43474"
+# "CHEBI:30616 + CHEBI:33813 = CHEBI:456216 + CHEBI:43474"
 
 chebi"30616 + 33813 = 456216 + 43474"
-# "CHEBI::30616 + CHEBI::33813 = CHEBI::456216 + CHEBI::43474"
+# "CHEBI:30616 + CHEBI:33813 = CHEBI:456216 + CHEBI:43474"
 ```
 To use this functionality:
 ```
+system = eQuilibrator.System()
 r_str = bigg"atp + h2o = adp + pi"
 dg_prime(system, r_str)
-# -29.14 ± 0.3 kJ mol^-1
+# -27.37 ± 0.3 kJ mol^-1
+```
+Note, these convenience functions may also be used on single metabolites to simplify the 
+specification of metabolite concentrations for `dg_prime`:
+```
+system = eQuilibrator.System()
+r_string = bigg"atp + h2o = adp + pi"
+concens = [bigg"atp"=>1u"mM", bigg"adp"=>100u"μM", bigg"pi"=>0.005u"M"]
+dg_prime(system, r_string; concentrations=concens) # user specified concentrations
+# -46.2 ± 0.3 kJ mol^-1
 ```
