@@ -35,6 +35,7 @@ Helper function for `_parse_reaction_string`.
 This function is not exported.
 """
 function _parse_reaction_part(str::String, prefix::String)
+    isnothing(findfirst(isletter, str)) && return String[]
     nospace_str = replace(str, "*" => " ") # get rid of * if present
     mets = split(nospace_str, r"\+")
     parsed_str = String[]
