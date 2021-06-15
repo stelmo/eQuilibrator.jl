@@ -30,5 +30,5 @@ If no errors occur, and the last command return something like `PyObject <module
 then you will be able to use `eQuilibrator.jl` after installing it:
 
 ```
-] addeQuilibrator
+] add eQuilibrator
 ```
