@@ -60,7 +60,7 @@ Respects stoichiometric coefficients. `"*"` in front of metabolites do not matte
 So `13pgm` is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 A string literal version also exists: `bigg"..."`
 
-See also [`kegg`](@ref), [`metanetx`](@ref), [`chebi`][@ref].
+See also [`kegg`](@ref), [`metanetx`](@ref), [`chebi`](@ref).
 
 # Example
 ```
@@ -80,7 +80,7 @@ Return a reaction string that has `"bigg.metabolite:"` appended in front of each
 Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter. 
 So `13pgm` is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 
-See also [`kegg`](@ref), [`metanetx`](@ref), [`chebi`][@ref].
+See also [`kegg`](@ref), [`metanetx`](@ref), [`chebi`](@ref).
 
 # Example
 ```
@@ -101,7 +101,7 @@ Respects stoichiometric coefficients. `"*"` in front of metabolites do not matte
 So 13pgm is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 A string literal version also exists: `kegg"..."`
 
-See also [`bigg`](@ref), [`metanetx`](@ref), [`chebi`][@ref].
+See also [`bigg`](@ref), [`metanetx`](@ref), [`chebi`](@ref).
 
 # Example
 ```
@@ -121,7 +121,7 @@ Return a reaction string that has `"kegg:"` appended in front of each metabolite
 Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter. 
 So `13pgm` is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 
-See also [`bigg`](@ref), [`metanetx`](@ref), [`chebi`][@ref].
+See also [`bigg`](@ref), [`metanetx`](@ref), [`chebi`](@ref).
 
 # Example
 ```
@@ -142,7 +142,7 @@ Respects stoichiometric coefficients. `"*"` in front of metabolites do not matte
 So `13pgm` is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 A string literal version also exists: `metanetx"..."`
 
-See also [`bigg`](@ref), [`kegg`](@ref), [`chebi`][@ref].
+See also [`bigg`](@ref), [`kegg`](@ref), [`chebi`](@ref)
 
 # Example
 ```
@@ -162,7 +162,7 @@ Return a reaction string that has `"metanetx.chemical:"` appended in front of ea
 Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter. 
 So `13pgm` is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 
-See also [`bigg`](@ref), [`kegg`](@ref), [`chebi`][@ref].
+See also [`bigg`](@ref), [`kegg`](@ref), [`chebi`](@ref).
 
 # Example
 ```
