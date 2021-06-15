@@ -15,7 +15,7 @@ Next, install `equilibrator_api` through `Conda.jl`:
 ```
 using Conda
 
-Conda.add("equilibrator-api"; channel="conda-forge") # note: use a dash and not an underscore
+Conda.add("equilibrator-api"; channel="conda-forge") # note: use a dash and not an underscore in "equilibrator-api"
 ```
 
 Then test if you can import `equilibrator_api` using PyCall:
@@ -23,12 +23,12 @@ Then test if you can import `equilibrator_api` using PyCall:
 ```
 using PyCall
 
-eq = pyimport("equilibrator_api") # note: use an underscore and not a dash
+eq = pyimport("equilibrator_api") # note: use an underscore and not a dash in "equilibrator_api"
 ```
 
 If no errors occur, and the last command return something like `PyObject <module 'equilibrator_api' from...` 
 then you will be able to use `eQuilibrator.jl` after installing it:
 
 ```
-] add https://github.com/stelmo/eQuilibrator.jl.git
+] addeQuilibrator
 ```

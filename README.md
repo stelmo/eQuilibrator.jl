@@ -23,7 +23,7 @@ A lightweight interface to [eQuilibrator](https://equilibrator.weizmann.ac.il/) 
 
 ## Installation
 
-To install this package: `] add https://github.com/stelmo/eQuilibrator.jl`. See the [documentation](https://stelmo.github.io/eQuilibrator.jl/dev/) for more information.
+To install this package: `] add eQuilibrator`. See the [documentation](https://stelmo.github.io/eQuilibrator.jl/dev/) for more information.
 
 ## Quick Example
 ```julia
