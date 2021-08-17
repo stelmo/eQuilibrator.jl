@@ -18,7 +18,7 @@ This function is not exported.
 function _parse_reaction_string(str::String, prefix::String)
     rxn_string_reagents_products = split(str, "=")
     if length(rxn_string_reagents_products) == 1
-        return prefix*":"*str # only metabolite 
+        return prefix*":"*str # only metabolite
     else
         reagents = string(rxn_string_reagents_products[1])
         products = string(rxn_string_reagents_products[2])
@@ -56,7 +56,7 @@ end
     bigg(str)
 
 Return a reaction string that has `"bigg.metabolite:"` appended in front of each metabolite.
-Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter. 
+Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
 So `13pgm` is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 A string literal version also exists: `bigg"..."`
 
@@ -77,7 +77,7 @@ end
     @bigg_str(str)
 
 Return a reaction string that has `"bigg.metabolite:"` appended in front of each metabolite.
-Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter. 
+Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
 So `13pgm` is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 
 See also [`kegg`](@ref), [`metanetx`](@ref), [`chebi`](@ref).
@@ -97,7 +97,7 @@ end
     kegg(str)
 
 Return a reaction string that has `"kegg:"` appended in front of each metabolite.
-Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter. 
+Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
 So 13pgm is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 A string literal version also exists: `kegg"..."`
 
@@ -118,7 +118,7 @@ function kegg(str::String)
     @kegg_str(str)
 
 Return a reaction string that has `"kegg:"` appended in front of each metabolite.
-Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter. 
+Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
 So `13pgm` is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 
 See also [`bigg`](@ref), [`metanetx`](@ref), [`chebi`](@ref).
@@ -138,7 +138,7 @@ end
     metanetx(str::String)
 
 Return a reaction string that has `"metanetx.chemical:"` appended in front of each metabolite.
-Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter. 
+Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
 So `13pgm` is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 A string literal version also exists: `metanetx"..."`
 
@@ -152,14 +152,14 @@ metanetx("MNXM3 + MNXM2 = MNXM7 + 2*MNXM9")
 ```
 """
 function metanetx(str::String)
-_parse_reaction_string(str, "metanetx.chemical")
+    _parse_reaction_string(str, "metanetx.chemical")
 end
 
 """
     @metanetx_str(str::String)
 
 Return a reaction string that has `"metanetx.chemical:"` appended in front of each metabolite.
-Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter. 
+Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
 So `13pgm` is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 
 See also [`bigg`](@ref), [`kegg`](@ref), [`chebi`](@ref).
@@ -179,7 +179,7 @@ end
     chebi(str)
 
 Return a reaction string that has `"CHEBI:"` appended in front of each metabolite.
-Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter. 
+Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
 So `13pgm` is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 A string literal version also exists: `chebi"..."`
 
@@ -200,7 +200,7 @@ function chebi(str::String)
     @chebi_str(str)
 
 Return a reaction string that has `"chebi:"` appended in front of each metabolite.
-Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter. 
+Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
 So `13pgm` is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 
 See also [`bigg`](@ref), [`metanetx`](@ref), [`kegg`](@ref).
@@ -219,7 +219,7 @@ end
 """
     _lower_bound(x, ϵ=0.001u"mM")
 
-Caps the lower bound of a concentration to ϵ. 
+Caps the lower bound of a concentration to ϵ.
 Return ϵ if x is less than ϵ, otherwise x.
 This function is not exported.
 """

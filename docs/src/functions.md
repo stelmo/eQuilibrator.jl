@@ -2,6 +2,6 @@
 
 ```@autodocs
 Modules=[eQuilibrator]
-Pages=["system.jl", "reaction.jl", "utils.jl"]
+Pages=["equilibrator_type.jl", "reaction.jl", "utils.jl"]
 Depth = 2
 ```

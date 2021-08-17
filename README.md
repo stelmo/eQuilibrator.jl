@@ -5,7 +5,7 @@
 
 [docs-img]:https://img.shields.io/badge/docs-latest-blue.svg
 [docs-url]: https://stelmo.github.io/eQuilibrator.jl/dev
- 
+
 [ci-img]: https://github.com/stelmo/eQuilibrator.jl/actions/workflows/ci.yml/badge.svg?branch=main
 [ci-url]: https://github.com/stelmo/eQuilibrator.jl/actions/workflows/ci.yml
 
@@ -28,14 +28,18 @@ To install this package: `] add eQuilibrator`. See the [documentation](https://s
 ## Quick Example
 ```julia
 using eQuilibrator
-using Unitful
+using Unitful, Measurements
 
-system = eQuilibrator.System(ionic_strength=150.0u"mM")
+equilibrator = eQuilibrator.Equilibrator(ionic_strength=150.0u"mM")
 
 rxn_string = bigg"atp + h2o = adp + pi"
 
-dg_prime(system, rxn_string) # -26.88 ± 0.3 kJ mol^-1
+ΔrG = dg_prime(equilibrator, rxn_string) # -26.88 ± 0.3 kJ mol^-1
+
+no_units_ΔrG = ustrip(u"kJ/mol", ΔrG) # -26.88 ± 0.3
+
+no_units_nominal_ΔrG = no_units_ΔrG.val # -26.877081724713634
 ```
 
 ## Contributions
-Please feel free to file an issue or submit a PR! 
+Please feel free to file an issue or submit a PR!

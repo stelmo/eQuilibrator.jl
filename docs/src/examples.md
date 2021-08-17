@@ -1,10 +1,10 @@
 # Example usage
 
-The following examples follow closely the [example usage](https://equilibrator.readthedocs.io/en/latest/equilibrator_examples.html#Code-examples) 
+The following examples follow closely the [example usage](https://equilibrator.readthedocs.io/en/latest/equilibrator_examples.html#Code-examples)
 documented in `equilibrator_api`. Try running these examples!
 
 ## Basic ΔG' calculations
-Load `eQuilibrator.jl` and `Unitful`. Then initialize the thermodynamic `system` as shown below.
+Load `eQuilibrator.jl` and `Unitful`. Then initialize the thermodynamic `equilibrator` as shown below.
 ```
 using eQuilibrator
 using Unitful
@@ -14,7 +14,7 @@ i_strength = 150.0u"mM"
 ph = 7.9
 pmg = 2.0
 
-system = eQuilibrator.System(pH=ph, pMg=pmg, temperature=temp, ionic_strength=i_strength)
+equilibrator = eQuilibrator.Equilibrator(pH=ph, pMg=pmg, temperature=temp, ionic_strength=i_strength)
 ```
 !!! note "Take care of units"
     Units for temperature and ionic strength are required (pH and pMg are
@@ -23,20 +23,20 @@ system = eQuilibrator.System(pH=ph, pMg=pmg, temperature=temp, ionic_strength=i_
 
 !!! note "Variable names"
     While it is tempting to name a variable `temperature` or `ionic_strength`,
-    these are the names of exported functions. Defining variables with these names 
+    these are the names of exported functions. Defining variables with these names
     will over-write these functions.
 
-It is possible to change the state of the system after initialization.
+It is possible to change the state of the equilibrator after initialization.
 ```
-temperature(system, 298.15u"K")
-ionic_strength(system, 0.25u"M")
-pH(system, 7.4)
-pMg(system, 3.0)
+temperature(equilibrator, 298.15u"K")
+ionic_strength(equilibrator, 0.25u"M")
+pH(equilibrator, 7.4)
+pMg(equilibrator, 3.0)
 ```
-An eQuilibrator.jl `System` has pretty printing:
+An eQuilibrator.jl `Equilibrator` has pretty printing:
 ```
-system
-# eQuilibrator System
+equilibrator
+# eQuilibrator Equilibrator
 # Temperature:    298.15 K
 # Ionic strength: 0.25 M
 # pH:             7.4
@@ -48,27 +48,27 @@ It is necessary to supply a reaction string.
 rxn_string = "bigg.metabolite:atp + bigg.metabolite:h2o = bigg.metabolite:adp + bigg.metabolite:pi"
 ```
 
-After specifying the reaction string, it is a simple matter of calling the appropriate function 
-to get the ΔG values. 
+After specifying the reaction string, it is a simple matter of calling the appropriate function
+to get the ΔG values.
 ```
-physiological_dg_prime(system, rxn_string)
+physiological_dg_prime(equilibrator, rxn_string)
 # -46.26 ± 0.3 kJ mol^-1
 
-standard_dg_prime(system, rxn_string)
+standard_dg_prime(equilibrator, rxn_string)
 # -29.14 ± 0.3 kJ mol^-1
 
-dg_prime(system, rxn_string) # equilibrator_api default abundances/concentrations
+dg_prime(equilibrator, rxn_string) # equilibrator_api default abundances/concentrations
 # -29.14 ± 0.3 kJ mol^-1
 
 concens = Dict("bigg.metabolite:atp"=>1u"mM", "bigg.metabolite:adp"=>100u"μM", "bigg.metabolite:pi"=>0.005u"M")
-dg_prime(system, rxn_string; concentrations=concens) # user specified concentrations
+dg_prime(equilibrator, rxn_string; concentrations=concens) # user specified concentrations
 # -47.98 ± 0.3 kJ mol^-1
 
-ln_reversibility_index(system, rxn_string)
+ln_reversibility_index(equilibrator, rxn_string)
 # -12.447 ± 0.082
 ```
 !!! tip "Errors are shown using `Measurements.jl`"
-    [eQuilibrator](https://equilibrator.weizmann.ac.il/static/classic_rxns/faq.html#how-do-you-calculate-the-uncertainty-for-each-estimation) 
+    [eQuilibrator](https://equilibrator.weizmann.ac.il/static/classic_rxns/faq.html#how-do-you-calculate-the-uncertainty-for-each-estimation)
     supplies estimates with uncertainties, these are reflected by the use of `a ± b` with `b` being the uncertainty, assumed to be
     one standard deviation here. The nominal value of a Gibbs energy estimate may be found by using `Measurements.value(...)`.
 
@@ -81,15 +81,15 @@ It is possible to mix and match metabolite identifiers, exactly like in
 is directly passed to `equilibrator_api`, so whatever strings works for it, will
 also work here.
 ```
-system = eQuilibrator.System()
+equilibrator = eQuilibrator.Equilibrator()
 atpase_rxn_string_2 = "kegg:C00002 + CHEBI:15377 = metanetx.chemical:MNXM7 + bigg.metabolite:pi"
-dg_prime(system, atpase_rxn_string_2)
+dg_prime(equilibrator, atpase_rxn_string_2)
 # -27.37 ± 0.3 kJ mol^-1
 ```
 Convenience functions for reaction string processing are also made available. These
 functions insert the appropriate identifier in front of each metabolite while respecting
 the associated stoichiometric coefficient. Note, these functions insert the exact same
-prefix before each metabolite. 
+prefix before each metabolite.
 ```
 bigg("atp + h2o = adp + pi")
 # "bigg.metabolite:atp + bigg.metabolite:h2o = bigg.metabolite:adp + 2 bigg.metabolite:pi"
@@ -117,17 +117,17 @@ chebi"30616 + 33813 = 456216 + 43474"
 ```
 To use this functionality:
 ```
-system = eQuilibrator.System()
+equilibrator = eQuilibrator.Equilibrator()
 r_str = bigg"atp + h2o = adp + pi"
-dg_prime(system, r_str)
+dg_prime(equilibrator, r_str)
 # -27.37 ± 0.3 kJ mol^-1
 ```
-Note, these convenience functions may also be used on single metabolites to simplify the 
+Note, these convenience functions may also be used on single metabolites to simplify the
 specification of metabolite concentrations for `dg_prime`:
 ```
-system = eQuilibrator.System()
+equilibrator = eQuilibrator.Equilibrator()
 r_string = bigg"atp + h2o = adp + pi"
 concens = [bigg"atp"=>1u"mM", bigg"adp"=>100u"μM", bigg"pi"=>0.005u"M"]
-dg_prime(system, r_string; concentrations=concens) # user specified concentrations
+dg_prime(equilibrator, r_string; concentrations=concens) # user specified concentrations
 # -46.2 ± 0.3 kJ mol^-1
 ```
