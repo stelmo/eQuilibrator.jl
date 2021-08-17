@@ -5,8 +5,15 @@ Converts units like kilojoule / mole into kJ/mol.
 This function is not exported.
 """
 function _parse_units(x)
-    unit_conversions = ["kilo"=>"k", "joule"=>"J", "mole"=>"mol", "milli"=>"m", "kelvin" => "K", "molar" => "M"]
-    return foldl(replace, unit_conversions; init=x)
+    unit_conversions = [
+        "kilo" => "k",
+        "joule" => "J",
+        "mole" => "mol",
+        "milli" => "m",
+        "kelvin" => "K",
+        "molar" => "M",
+    ]
+    return foldl(replace, unit_conversions; init = x)
 end
 
 """
@@ -18,13 +25,13 @@ This function is not exported.
 function _parse_reaction_string(str::String, prefix::String)
     rxn_string_reagents_products = split(str, "=")
     if length(rxn_string_reagents_products) == 1
-        return prefix*":"*str # only metabolite
+        return prefix * ":" * str # only metabolite
     else
         reagents = string(rxn_string_reagents_products[1])
         products = string(rxn_string_reagents_products[2])
-        parsed_reagents = join(_parse_reaction_part(reagents, prefix*":"), " + ")
-        parsed_products = join(_parse_reaction_part(products, prefix*":"), " + ")
-        return parsed_reagents*" = "*parsed_products
+        parsed_reagents = join(_parse_reaction_part(reagents, prefix * ":"), " + ")
+        parsed_products = join(_parse_reaction_part(products, prefix * ":"), " + ")
+        return parsed_reagents * " = " * parsed_products
     end
 end
 
@@ -40,13 +47,13 @@ function _parse_reaction_part(str::String, prefix::String)
     mets = split(nospace_str, r"\+")
     parsed_str = String[]
     for met in mets
-        met = replace(met, r"\s+$"=>"")
+        met = replace(met, r"\s+$" => "")
         ind = findfirst(r"(\d+\s)|(\d+\.\s)|(\d+\.\d+\s)|(\.\d+\s)", met)
         if isnothing(ind)
-            push!(parsed_str, prefix*replace(met," "=>""))
+            push!(parsed_str, prefix * replace(met, " " => ""))
         else
             stoich = met[ind]
-            push!(parsed_str, stoich*prefix*replace(met[ind[end]+1:end]," "=>""))
+            push!(parsed_str, stoich * prefix * replace(met[ind[end]+1:end], " " => ""))
         end
     end
     return parsed_str
@@ -70,7 +77,7 @@ bigg("atp + h2o = adp + 2 pi")
 ```
 """
 function bigg(str)
-   _parse_reaction_string(str, "bigg.metabolite")
+    _parse_reaction_string(str, "bigg.metabolite")
 end
 
 """
@@ -112,7 +119,7 @@ kegg("C00002 + C00001 = C00008 + 2 C00009")
 """
 function kegg(str::String)
     _parse_reaction_string(str, "kegg")
- end
+end
 
 """
     @kegg_str(str)
@@ -194,7 +201,7 @@ chebi(30616 + 33813 = 456216 + 2 43474")
 """
 function chebi(str::String)
     _parse_reaction_string(str, "CHEBI")
- end
+end
 
 """
     @chebi_str(str)
@@ -223,6 +230,6 @@ Caps the lower bound of a concentration to ϵ.
 Return ϵ if x is less than ϵ, otherwise x.
 This function is not exported.
 """
-function _lower_bound(x, ϵ=0.001u"mM")
+function _lower_bound(x, ϵ = 0.001u"mM")
     x < ϵ ? ϵ : x
 end

@@ -4,16 +4,21 @@
 A struct used to reference the `equilibrator_api` object.
 """
 struct Equilibrator
-    eq :: PyObject
-    cc :: PyObject
+    eq::PyObject
+    cc::PyObject
 end
 
 function Base.show(io::IO, ::MIME"text/plain", equilibrator::Equilibrator)
     println(crayon"blue bold", "eQuilibrator system", crayon"default !bold")
-    println(crayon"yellow","Temperature:\t", crayon"default", temperature(equilibrator))
-    println(crayon"yellow","Ionic strength: ", crayon"default", ionic_strength(equilibrator))
-    println(crayon"yellow","pH:\t\t", crayon"default", pH(equilibrator))
-    println(crayon"yellow","pMg:\t\t", crayon"default", pMg(equilibrator))
+    println(crayon"yellow", "Temperature:\t", crayon"default", temperature(equilibrator))
+    println(
+        crayon"yellow",
+        "Ionic strength: ",
+        crayon"default",
+        ionic_strength(equilibrator),
+    )
+    println(crayon"yellow", "pH:\t\t", crayon"default", pH(equilibrator))
+    println(crayon"yellow", "pMg:\t\t", crayon"default", pMg(equilibrator))
 end
 
 """
@@ -31,7 +36,12 @@ using Unitful
 equilibrator = Equilibrator(pH=6.0, pMg = 2.5, ionic_strength=250.0u"mM", temperature=30.0u"°C")
 ```
 """
-function Equilibrator(;pH=7.0, pMg = 3.0, ionic_strength = 0.25u"M", temperature=298.15u"K")
+function Equilibrator(;
+    pH = 7.0,
+    pMg = 3.0,
+    ionic_strength = 0.25u"M",
+    temperature = 298.15u"K",
+)
     eq = pyimport("equilibrator_api")
     cc = eq.ComponentContribution()
 

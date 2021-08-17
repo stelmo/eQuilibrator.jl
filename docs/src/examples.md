@@ -26,6 +26,11 @@ equilibrator = eQuilibrator.Equilibrator(pH=ph, pMg=pmg, temperature=temp, ionic
     these are the names of exported functions. Defining variables with these names
     will over-write these functions.
 
+!!! warning "Temperature"
+    Please see the documentation of `eQuilibrator` or `equilibrator-api` about changing the
+    temperature.
+
+
 It is possible to change the state of the equilibrator after initialization.
 ```
 temperature(equilibrator, 298.15u"K")

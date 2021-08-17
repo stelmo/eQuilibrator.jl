@@ -18,7 +18,13 @@ concens = Dict("bigg.metabolite:atp"=>1u"mM", "bigg.metabolite:adp"=>100u"μM", 
 dg_prime(equilibrator, rxn_string; concentrations=concens)
 ```
 """
-function dg_prime(equilibrator, rxn_string; concentrations=Dict{String, Any}(), balance_warn=true, skip_unbalanced=false)
+function dg_prime(
+    equilibrator,
+    rxn_string;
+    concentrations = Dict{String,Any}(),
+    balance_warn = true,
+    skip_unbalanced = false,
+)
     rxn = equilibrator.cc.parse_reaction_formula(rxn_string)
 
     if balance_warn && !rxn.is_balanced()
@@ -52,7 +58,12 @@ rxn_string = "bigg.metabolite:atp + bigg.metabolite:h2o = bigg.metabolite:adp + 
 physiological_dg_prime(equilibrator, rxn_string)
 ```
 """
-function physiological_dg_prime(equilibrator, rxn_string; balance_warn=true, skip_unbalanced=false)
+function physiological_dg_prime(
+    equilibrator,
+    rxn_string;
+    balance_warn = true,
+    skip_unbalanced = false,
+)
     rxn = equilibrator.cc.parse_reaction_formula(rxn_string)
 
     if balance_warn && !rxn.is_balanced()
@@ -84,7 +95,12 @@ rxn_string = "bigg.metabolite:atp + bigg.metabolite:h2o = bigg.metabolite:adp + 
 standard_dg_prime(equilibrator, rxn_string)
 ```
 """
-function standard_dg_prime(equilibrator, rxn_string; balance_warn=true, skip_unbalanced=false)
+function standard_dg_prime(
+    equilibrator,
+    rxn_string;
+    balance_warn = true,
+    skip_unbalanced = false,
+)
     rxn = equilibrator.cc.parse_reaction_formula(rxn_string)
 
     if balance_warn && !rxn.is_balanced()
@@ -114,7 +130,12 @@ rxn_string = "bigg.metabolite:atp + bigg.metabolite:h2o = bigg.metabolite:adp + 
 ln_reversibility_index(equilibrator, rxn_string)
 ```
 """
-function ln_reversibility_index(equilibrator, rxn_string; balance_warn=true, skip_unbalanced=false)
+function ln_reversibility_index(
+    equilibrator,
+    rxn_string;
+    balance_warn = true,
+    skip_unbalanced = false,
+)
     rxn = equilibrator.cc.parse_reaction_formula(rxn_string)
 
     if balance_warn && !rxn.is_balanced()

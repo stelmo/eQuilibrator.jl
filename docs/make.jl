@@ -10,10 +10,12 @@ makedocs(
     ),
     authors = "The developers of eQuilibrator.jl",
     linkcheck = !("skiplinks" in ARGS),
-    pages = ["Home" => "index.md",
-            "Installation" => "installation.md",
-            "Example usage" => "examples.md",
-            "Function reference" => "functions.md"],
+    pages = [
+        "Home" => "index.md",
+        "Installation" => "installation.md",
+        "Example usage" => "examples.md",
+        "Function reference" => "functions.md",
+    ],
 )
 
 deploydocs(
