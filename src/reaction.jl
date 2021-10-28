@@ -45,10 +45,10 @@ end
 """
     physiological_dg_prime(equilibrator, rxn_string; balance_warn=true, skip_unbalanced=false)
 
-Calculate ΔG' at physiological conditions of a reaction described by
-`rxn_string` using the settings in `equilibrator`. If `skip_unbalanced` is true then
-return `nothing` if the reaction is unbalanced. If `balance_warn` is false
-then do not emit a warning when the reaction is unbalanced.
+Calculate ΔG' at physiological conditions (all concentrations set to 1 mM) of a reaction
+described by `rxn_string` using the settings in `equilibrator`. If `skip_unbalanced` is true
+then return `nothing` if the reaction is unbalanced. If `balance_warn` is false then do not
+emit a warning when the reaction is unbalanced.
 
 # Example
 ```
