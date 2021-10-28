@@ -1,7 +1,7 @@
 name = "eQuilibrator"
 uuid = "9d196975-2c9b-462f-a3cc-8957d44b8c95"
 authors = ["St. Elmo Wilken <stelmozors@gmail.com>", "Mirek Kratochvil <exa.exa@gmail.com>"]
-version = "1.0"
+version = "1.0.1"
 
 [deps]
 Conda = "8f4d0f93-b110-5947-807f-2305c1781a2d"
