@@ -43,13 +43,13 @@ function standard_dg_prime_multi(
         minimize_norm = minimize_norm,
     )
 
-    if uncertainty_representation=="cov"
+    if uncertainty_representation == "cov"
         Q = pyQ.m_as("kJ^2/mol^2")u"kJ/mol"
-    elseif uncertainty_representation=="fullrank"
+    elseif uncertainty_representation == "fullrank"
         Q = pyQ.m_as("kJ/mol")u"kJ/mol"
-    elseif uncertainty_representation=="precision"
+    elseif uncertainty_representation == "precision"
         Q = pyQ.m_as("mol/kJ")u"mol/kJ"
-    elseif uncertainty_representation=="sqrt"
+    elseif uncertainty_representation == "sqrt"
         Q = pyQ.m_as("kJ/mol")u"kJ/mol"
     end
     return pymeans.m_as("kJ/mol")u"kJ/mol", Q

@@ -42,27 +42,31 @@ function multi_compartmental_standard_dg_prime(
     pH_outer = 7.0,
     pMg_outer = 3.0,
     ionic_strength_outer = 0.25u"M",
-    tolerance=0.0,
+    tolerance = 0.0,
 )
 
-    e_potential_difference = equilibrator.eq.Q_(string(uconvert(u"V", potential_difference)))
+    e_potential_difference =
+        equilibrator.eq.Q_(string(uconvert(u"V", potential_difference)))
 
     outer_pH = equilibrator.eq.Q_(pH_outer)
     outer_pMg = equilibrator.eq.Q_(pMg_outer)
-    outer_ionic_strength = equilibrator.eq.Q_(string(uconvert(u"M", float(ionic_strength_outer))))
+    outer_ionic_strength =
+        equilibrator.eq.Q_(string(uconvert(u"M", float(ionic_strength_outer))))
 
     inner_rxn = equilibrator.cc.parse_reaction_formula(rxn_inner)
     outer_rxn = equilibrator.cc.parse_reaction_formula(rxn_outer)
 
     standard_dg_prime = equilibrator.cc.multicompartmental_standard_dg_prime(
-        reaction_inner=inner_rxn,
-        reaction_outer=outer_rxn,
-        e_potential_difference=e_potential_difference,
-        p_h_outer=outer_pH,
-        ionic_strength_outer=outer_ionic_strength,
-        p_mg_outer=outer_pMg,
-        tolerance=tolerance,
+        reaction_inner = inner_rxn,
+        reaction_outer = outer_rxn,
+        e_potential_difference = e_potential_difference,
+        p_h_outer = outer_pH,
+        ionic_strength_outer = outer_ionic_strength,
+        p_mg_outer = outer_pMg,
+        tolerance = tolerance,
     )
 
-    return (standard_dg_prime.value.m_as("kJ/mol") ± standard_dg_prime.error.m_as("kJ/mol"))u"kJ/mol"
+    return (
+        standard_dg_prime.value.m_as("kJ/mol") ± standard_dg_prime.error.m_as("kJ/mol")
+    )u"kJ/mol"
 end

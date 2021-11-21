@@ -23,9 +23,18 @@ function standard_dg_formation(equilibrator::Equilibrator, mets::Vector{String})
     sigmas_fin = hcat([met_formation[2] for met_formation in met_formations]...)
     sigmas_inf = hcat([met_formation[3] for met_formation in met_formations]...)
 
-    leg_trans = [pymet.transform(equilibrator.cc.p_h, equilibrator.cc.ionic_strength, equilibrator.cc.temperature, equilibrator.cc.p_mg).m_as("kJ/mol") for pymet in pymets]
+    leg_trans = [
+        pymet.transform(
+            equilibrator.cc.p_h,
+            equilibrator.cc.ionic_strength,
+            equilibrator.cc.temperature,
+            equilibrator.cc.p_mg,
+        ).m_as(
+            "kJ/mol",
+        ) for pymet in pymets
+    ]
 
-    standard_dgf_prime_mu  = dgs + leg_trans
+    standard_dgf_prime_mu = dgs + leg_trans
     standard_dgf_cov = sigmas_fin' * sigmas_fin + 1e6 .* sigmas_inf' * sigmas_inf
 
     return (standard_dgf_prime_mu)u"kJ/mol", (standard_dgf_cov)u"kJ/mol"
