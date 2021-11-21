@@ -26,9 +26,14 @@ using PyCall
 eq = pyimport("equilibrator_api") # note: use an underscore and not a dash in "equilibrator_api"
 ```
 
-If no errors occur, and the last command return something like `PyObject <module 'equilibrator_api' from...` 
+If no errors occur, and the last command return something like `PyObject <module 'equilibrator_api' from...`
 then you will be able to use `eQuilibrator.jl` after installing it:
 
 ```
 ] add eQuilibrator
+```
+
+Finally, test if everything works as expected:
+```
+] test eQuilibrator
 ```

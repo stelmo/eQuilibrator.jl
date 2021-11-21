@@ -1,5 +1,5 @@
 """
-    _parse_units(x)
+    $(SIGNATURES)
 
 Converts units like kilojoule / mole into kJ/mol.
 This function is not exported.
@@ -12,12 +12,15 @@ function _parse_units(x)
         "milli" => "m",
         "kelvin" => "K",
         "molar" => "M",
+        "micro" => "μ",
+        "nano" => "n",
+        "V" => "V",
     ]
     return foldl(replace, unit_conversions; init = x)
 end
 
 """
-    _parse_reaction_string(str::String, prefix::String)
+    $(SIGNATURES)
 
 Parse a reaction string and insert the prefix in front of each metabolite.
 This function is not exported.
@@ -36,7 +39,7 @@ function _parse_reaction_string(str::String, prefix::String)
 end
 
 """
-    _parse_reaction_part(str::String, prefix::String)
+    $(SIGNATURES)
 
 Helper function for `_parse_reaction_string`.
 This function is not exported.
@@ -60,7 +63,7 @@ function _parse_reaction_part(str::String, prefix::String)
 end
 
 """
-    bigg(str)
+    $(SIGNATURES)
 
 Return a reaction string that has `"bigg.metabolite:"` appended in front of each metabolite.
 Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
@@ -81,7 +84,7 @@ function bigg(str)
 end
 
 """
-    @bigg_str(str)
+    $(SIGNATURES)
 
 Return a reaction string that has `"bigg.metabolite:"` appended in front of each metabolite.
 Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
@@ -101,7 +104,7 @@ macro bigg_str(str)
 end
 
 """
-    kegg(str)
+    $(SIGNATURES)
 
 Return a reaction string that has `"kegg:"` appended in front of each metabolite.
 Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
@@ -122,7 +125,7 @@ function kegg(str::String)
 end
 
 """
-    @kegg_str(str)
+    $(SIGNATURES)
 
 Return a reaction string that has `"kegg:"` appended in front of each metabolite.
 Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
@@ -142,7 +145,7 @@ macro kegg_str(str::String)
 end
 
 """
-    metanetx(str::String)
+    $(SIGNATURES)
 
 Return a reaction string that has `"metanetx.chemical:"` appended in front of each metabolite.
 Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
@@ -163,7 +166,7 @@ function metanetx(str::String)
 end
 
 """
-    @metanetx_str(str::String)
+    $(SIGNATURES)
 
 Return a reaction string that has `"metanetx.chemical:"` appended in front of each metabolite.
 Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
@@ -183,7 +186,7 @@ macro metanetx_str(str::String)
 end
 
 """
-    chebi(str)
+    $(SIGNATURES)
 
 Return a reaction string that has `"CHEBI:"` appended in front of each metabolite.
 Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
@@ -204,9 +207,9 @@ function chebi(str::String)
 end
 
 """
-    @chebi_str(str)
+    $(SIGNATURES)
 
-Return a reaction string that has `"chebi:"` appended in front of each metabolite.
+Return a reaction string that has `"CHEBI:"` appended in front of each metabolite.
 Respects stoichiometric coefficients. `"*"` in front of metabolites do not matter, but spaces do matter.
 So `13pgm` is different from `13 pgm` but `13*pgm` is the same as `13 pgm`.
 
@@ -224,7 +227,7 @@ macro chebi_str(str::String)
 end
 
 """
-    _lower_bound(x, ϵ=0.001u"mM")
+    $(SIGNATURES)
 
 Caps the lower bound of a concentration to ϵ.
 Return ϵ if x is less than ϵ, otherwise x.

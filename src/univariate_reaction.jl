@@ -1,5 +1,5 @@
 """
-    dg_prime(equilibrator, rxn_string; concentrations=Dict{String, Any}(), skip_unbalanced=false, balance_warn=true)
+    $(SIGNATURES)
 
 Calculate ΔG' of a reaction described by `rxn_string` using the settings in
 `equilibrator`. Optionally, set the concentrations (abundances) of the species involved
@@ -19,16 +19,16 @@ dg_prime(equilibrator, rxn_string; concentrations=concens)
 ```
 """
 function dg_prime(
-    equilibrator,
-    rxn_string;
-    concentrations = Dict{String,Any}(),
+    equilibrator::Equilibrator,
+    rxn_string::String;
+    concentrations = Dict{String,Real}(),
     balance_warn = true,
     skip_unbalanced = false,
 )
     rxn = equilibrator.cc.parse_reaction_formula(rxn_string)
 
     if balance_warn && !rxn.is_balanced()
-        balance_warn && @warn "Reaction unbalanced."
+        @warn "Reaction unbalanced."
         skip_unbalanced && return nothing
     end
 
@@ -43,9 +43,9 @@ function dg_prime(
 end
 
 """
-    physiological_dg_prime(equilibrator, rxn_string; balance_warn=true, skip_unbalanced=false)
+    $(SIGNATURES)
 
-Calculate ΔG' at physiological conditions (all concentrations set to 1 mM) of a reaction
+Calculate ΔG' at physiological conditions (all concentrations set to 1 mM, 1mbar) of a reaction
 described by `rxn_string` using the settings in `equilibrator`. If `skip_unbalanced` is true
 then return `nothing` if the reaction is unbalanced. If `balance_warn` is false then do not
 emit a warning when the reaction is unbalanced.
@@ -59,15 +59,15 @@ physiological_dg_prime(equilibrator, rxn_string)
 ```
 """
 function physiological_dg_prime(
-    equilibrator,
-    rxn_string;
+    equilibrator::Equilibrator,
+    rxn_string::String;
     balance_warn = true,
     skip_unbalanced = false,
 )
     rxn = equilibrator.cc.parse_reaction_formula(rxn_string)
 
     if balance_warn && !rxn.is_balanced()
-        balance_warn && @warn "Reaction unbalanced."
+        @warn "Reaction unbalanced."
         skip_unbalanced && return nothing
     end
 
@@ -78,7 +78,7 @@ function physiological_dg_prime(
 end
 
 """
-    standard_dg_prime(equilibrator, rxn_string; balance_warn=true, skip_unbalanced=false)
+    $(SIGNATURES)
 
 Calculate ΔG⁰ at standard conditons of a reaction described by `rxn_string` using
 the settings in `equilibrator`. If `skip_unbalanced` is true then return `nothing` if the
@@ -96,15 +96,15 @@ standard_dg_prime(equilibrator, rxn_string)
 ```
 """
 function standard_dg_prime(
-    equilibrator,
-    rxn_string;
+    equilibrator::Equilibrator,
+    rxn_string::String;
     balance_warn = true,
     skip_unbalanced = false,
 )
     rxn = equilibrator.cc.parse_reaction_formula(rxn_string)
 
     if balance_warn && !rxn.is_balanced()
-        balance_warn && @warn "Reaction unbalanced."
+        @warn "Reaction unbalanced."
         skip_unbalanced && return nothing
     end
 
@@ -115,7 +115,7 @@ function standard_dg_prime(
 end
 
 """
-    ln_reversibility_index(equilibrator, rxn_string; balance_warn=true, skip_unbalanced=false)
+    $(SIGNATURES)
 
 Calculate the log of the reversibility index of a reaction described by `rxn_string`
 using settings in `equilibrator`. If `skip_unbalanced` is true then return `nothing` if the reaction is
@@ -131,15 +131,15 @@ ln_reversibility_index(equilibrator, rxn_string)
 ```
 """
 function ln_reversibility_index(
-    equilibrator,
-    rxn_string;
+    equilibrator::Equilibrator,
+    rxn_string::String;
     balance_warn = true,
     skip_unbalanced = false,
 )
     rxn = equilibrator.cc.parse_reaction_formula(rxn_string)
 
     if balance_warn && !rxn.is_balanced()
-        balance_warn && @warn "Reaction unbalanced."
+        @warn "Reaction unbalanced."
         skip_unbalanced && return nothing
     end
 

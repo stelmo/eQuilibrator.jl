@@ -5,27 +5,21 @@ using PyCall
 using Unitful
 using Measurements
 using Crayons
+using DocStringExtensions
 
 include("utils.jl")
 include("equilibrator_type.jl")
-include("reaction.jl")
+include("univariate_reaction.jl")
+include("multivariate_reaction.jl")
+include("multicompartment_reaction.jl")
+include("formation.jl")
 
-export Equilibrator,
-    temperature,
-    ionic_strength,
-    pH,
-    pMg,
-    standard_dg_prime,
-    physiological_dg_prime,
-    dg_prime,
-    ln_reversibility_index,
-    bigg,
-    @bigg_str,
-    kegg,
-    @kegg_str,
-    chebi,
-    @chebi_str,
-    metanetx,
-    @metanetx_str
+# export everything that isn't prefixed with _ (inspired by JuMP.jl, thanks!)
+for sym in names(@__MODULE__, all = true)
+    if sym in [Symbol(@__MODULE__), :eval, :include] || startswith(string(sym), ['_', '#'])
+        continue
+    end
+    @eval export $sym
+end
 
 end # module

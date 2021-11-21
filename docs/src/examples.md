@@ -1,6 +1,6 @@
 # Example usage
 
-The following examples follow closely the [example usage](https://equilibrator.readthedocs.io/en/latest/equilibrator_examples.html#Code-examples)
+The following examples follow closely the [example usage](https://equilibrator.readthedocs.io/en/latest/equilibrator_examples.html#)
 documented in `equilibrator_api`. Try running these examples!
 
 ## Basic ΔG' calculations
@@ -21,11 +21,6 @@ equilibrator = eQuilibrator.Equilibrator(pH=ph, pMg=pmg, temperature=temp, ionic
     unitless floats). However, any suitable unit may be used, they are internally
     converted into Kelvin and molar respectively.
 
-!!! note "Variable names"
-    While it is tempting to name a variable `temperature` or `ionic_strength`,
-    these are the names of exported functions. Defining variables with these names
-    will over-write these functions.
-
 !!! warning "Temperature"
     Please see the documentation of `eQuilibrator` or `equilibrator-api` about changing the
     temperature.
@@ -33,10 +28,10 @@ equilibrator = eQuilibrator.Equilibrator(pH=ph, pMg=pmg, temperature=temp, ionic
 
 It is possible to change the state of the equilibrator after initialization.
 ```
-temperature(equilibrator, 298.15u"K")
-ionic_strength(equilibrator, 0.25u"M")
-pH(equilibrator, 7.4)
-pMg(equilibrator, 3.0)
+set_temperature(equilibrator, 298.15u"K")
+set_ionic_strength(equilibrator, 0.25u"M")
+set_pH(equilibrator, 7.4)
+set_pMg(equilibrator, 3.0)
 ```
 An eQuilibrator.jl `Equilibrator` has pretty printing:
 ```
@@ -136,3 +131,6 @@ concens = [bigg"atp"=>1u"mM", bigg"adp"=>100u"μM", bigg"pi"=>0.005u"M"]
 dg_prime(equilibrator, r_string; concentrations=concens) # user specified concentrations
 # -46.2 ± 0.3 kJ mol^-1
 ```
+
+## Advanced functionality
+This API is relatively complete, see the `test` directory for all the implemented functionality.
