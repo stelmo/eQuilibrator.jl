@@ -26,7 +26,7 @@ function standard_dg_prime_multi(
     rxn_strings::Vector{String};
     balance_warn = true,
     skip_unbalanced = false,
-    uncertainty_representation = "fullrank",
+    uncertainty_representation = "cov",
     minimize_norm = false,
 )
     rxns =
