@@ -33,7 +33,10 @@ function standard_dg_prime_multi(
         [equilibrator.cc.parse_reaction_formula(rxn_string) for rxn_string in rxn_strings]
 
     if balance_warn && any(!rxn.is_balanced() for rxn in rxns)
-        @warn "Reaction(s) unbalanced."
+        for (k, rxn) in enumerate(rxns)
+            if !rxn.is_balanced
+                @warn "Reaction at index $k is unbalanced."
+            end
         skip_unbalanced && return nothing
     end
 
