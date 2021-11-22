@@ -37,6 +37,7 @@ function standard_dg_prime_multi(
             if !rxn.is_balanced
                 @warn "Reaction at index $k is unbalanced."
             end
+        end
         skip_unbalanced && return nothing
     end
 
@@ -47,7 +48,7 @@ function standard_dg_prime_multi(
     )
 
     if uncertainty_representation == "cov"
-        Q = pyQ.m_as("kJ^2/mol^2")u"kJ/mol"
+        Q = pyQ.m_as("kJ^2/mol^2")u"kJ^2/mol^2"
     elseif uncertainty_representation == "fullrank"
         Q = pyQ.m_as("kJ/mol")u"kJ/mol"
     elseif uncertainty_representation == "precision"
