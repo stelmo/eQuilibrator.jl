@@ -1,6 +1,5 @@
 module eQuilibrator
 
-using Measurements: length
 using PyCall
 using Unitful
 using Measurements

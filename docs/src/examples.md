@@ -35,12 +35,12 @@ set_pMg(equilibrator, 3.0)
 ```
 An eQuilibrator.jl `Equilibrator` has pretty printing:
 ```
-equilibrator
-# eQuilibrator Equilibrator
-# Temperature:    298.15 K
-# Ionic strength: 0.25 M
-# pH:             7.4
-# pMg:            3.0
+julia> eq
+Interface to equilibrator_api v0.4.5.1
+Temperature:    298.15 K
+Ionic strength: 0.25 M
+pH:             7.5
+pMg:            3.0
 ```
 
 It is necessary to supply a reaction string.
@@ -134,3 +134,5 @@ dg_prime(equilibrator, r_string; concentrations=concens) # user specified concen
 
 ## Advanced functionality
 This API is relatively complete, see the `test` directory for all the implemented functionality.
+In short, multi-compartment and multi-reaction functionality is implemented, as well as limited
+Gibbs energy of formation support.

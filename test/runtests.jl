@@ -101,14 +101,13 @@ eq = eQuilibrator.Equilibrator()
     end
 
     @testset "multicompartment_reaction" begin
-        n = 2
-        cyto_rxn = bigg("adp + pi + $n h = h2o + atp")
-        peri_rxn = bigg(" = $n h")
+        cyto_rxn = bigg("adp + pi = 4 h + h2o + atp")
+        peri_rxn = bigg("4 h =")
 
-        ψ = 0.17u"V"
-        peri_ionic = 0.2u"M"
+        ψ = -0.17u"V"
+        peri_ionic = 0.20u"M"
         peri_pMg = 3.0
-        peri_pH = 6.5
+        peri_pH = 7.0
 
         set_ionic_strength(eq, 250u"mM")
         set_pH(eq, 7.4)
@@ -122,10 +121,9 @@ eq = eQuilibrator.Equilibrator()
             pH_outer = peri_pH,
             pMg_outer = peri_pMg,
             ionic_strength_outer = peri_ionic,
-            tolerance = 2.0,
         )
 
-        @test ustrip(u"kJ/mol", dg).val ≈ 6.608474733432928 atol = 1e-4
+        @test ustrip(u"kJ/mol", dg).val ≈ -45.59324113925093 atol = 1e-4
         @test ustrip(u"kJ/mol", dg).err ≈ 0.30427785529910256 atol = 1e-4
     end
 

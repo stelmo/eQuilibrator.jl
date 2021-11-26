@@ -11,7 +11,8 @@ struct Equilibrator
 end
 
 function Base.show(io::IO, ::MIME"text/plain", equilibrator::Equilibrator)
-    println(crayon"blue bold", "eQuilibrator system", crayon"default !bold")
+    v = string(equilibrator.eq.__version__)
+    println(crayon"blue bold", "Interface to equilibrator_api v$v", crayon"default !bold")
     println(
         crayon"yellow",
         "Temperature:\t",
