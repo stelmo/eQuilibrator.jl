@@ -25,6 +25,8 @@ A lightweight interface to [eQuilibrator](https://equilibrator.weizmann.ac.il/) 
 
 To install this package: `] add eQuilibrator`. See the [documentation](https://stelmo.github.io/eQuilibrator.jl/dev/) for more information.
 
+** Note, this package has been tested against equilibrator-api v0.5 only. Please make sure you use that version.**
+
 ## Quick Example
 ```julia
 using eQuilibrator
